@@ -2,6 +2,8 @@
 import type { Contributions } from '~~/types'
 
 const colorMode = useColorMode()
+const { locale, setLocale } = useI18n()
+
 const { data: contributions } = await useFetch<Contributions>('/api/contributions')
 
 if (!contributions.value) {
@@ -18,6 +20,7 @@ useHead({
     { rel: 'alternate', type: 'application/rss+xml', title: `${user.name}'s recent pull requests`, href: '/feed.xml' },
   ],
 })
+
 useSeoMeta({
   title: `${user.name} is Contributing`,
   description: `Discover ${user.name} recent pull requests on GitHub.`,
@@ -42,17 +45,24 @@ useSeoMeta({
       </a>
       <h1 class="text-2xl sm:text-3xl text-center">
         <a :href="userUrl" target="_blank">
-          {{ user.name }}
+          {{ locale === 'zh-CN' ? '旷力介' : user.name }}
         </a>
-        is <span class="animate-pulse">Contributing...</span>
+        {{ $t('title.is') }} <span class="animate-pulse">{{$t('title.Contributing')}}</span>
       </h1>
       <p class="text-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
         <NuxtLink :to="userUrl" target="_blank">
-          @{{ user.username }}'s recent pull requests on GitHub.
+          {{ $t('subtitle', { username: user.username }) }}
         </NuxtLink>
       </p>
       <div class="flex items-center justify-center gap-1 text-gray-700 dark:text-gray-300">
         <ClientOnly>
+          <UButton
+            :aria-label="`${user.name}'s GitHub profile`"
+            icon="i-ph-translate"
+            color="gray"
+            variant="link"
+            @click="setLocale(locale === 'en' ? 'zh-CN' : 'en')"
+          /> 
           <UButton
             :aria-label="`${user.name}'s GitHub profile`"
             :icon="colorMode.value === 'dark' ? 'i-ph-moon-stars-duotone' : 'i-ph-sun-duotone'"

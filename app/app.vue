@@ -12,7 +12,7 @@ useHead({
     <UButton
       to="https://github.com/atinux/my-pull-requests"
       target="_blank"
-      color="black"
+      color="white"
       size="xs"
       icon="i-simple-icons-github"
     >

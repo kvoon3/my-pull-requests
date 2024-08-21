@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxthub/core',
     '@vueuse/nuxt',
+    '@nuxtjs/i18n'
   ],
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
@@ -33,4 +34,9 @@ export default defineNuxtConfig({
 
   // https://devtools.nuxt.com
   devtools: { enabled: true },
+
+  // https://i18n.nuxtjs.org/
+  i18n: {
+    vueI18n: './i18n.config.ts' // if you are using custom path, default
+  }
 })
