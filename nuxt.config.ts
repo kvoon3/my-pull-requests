@@ -26,9 +26,7 @@ export default defineNuxtConfig({
   // https://eslint.nuxt.com
   eslint: {
     config: {
-      stylistic: {
-        quotes: 'single',
-      },
+      standalone: false
     },
   },
 
@@ -37,6 +35,7 @@ export default defineNuxtConfig({
 
   // https://i18n.nuxtjs.org/
   i18n: {
-    vueI18n: './i18n.config.ts' // if you are using custom path, default
+    vueI18n: './i18n.config.ts', // if you are using custom path, default
+    locales: ['en', 'zh-CN'],
   }
 })

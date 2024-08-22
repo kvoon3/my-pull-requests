@@ -26,7 +26,10 @@
     "vue-router": "^4.4.3"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.27.0",
     "@nuxt/eslint": "^0.5.1",
+    "@types/luxon": "^3.4.2",
+    "@unocss/eslint-plugin": "^0.62.2",
     "eslint": "^9.9.0",
     "vue-tsc": "^2.0.29",
     "wrangler": "^3.72.1"
