@@ -1,5 +1,5 @@
-import process from 'node:process'
 import type { H3Event } from 'h3'
+import process from 'node:process'
 import { Octokit } from 'octokit'
 
 let _octokit: Octokit

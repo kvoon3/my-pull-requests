@@ -2,7 +2,6 @@
 import type { Contributions } from '~~/types'
 
 const colorMode = useColorMode()
-// const { locale, setLocale } = useI18n()
 
 const { data: contributions } = await useFetch<Contributions>('/api/contributions')
 
@@ -35,69 +34,55 @@ useSeoMeta({
 </script>
 
 <template>
-  <UContainer class="p-4 sm:p-6 lg:p-8 lg:pt-10 max-w-3xl">
-    <div class="flex flex-col items-center gap-2">
-      <a :href="userUrl" target="_blank"><UAvatar
-        :src="user.avatar"
-        :alt="user.name"
-        size="xl"
-      />
+  <div class="mxa p-4 max-w-3xl lg:p-8 sm:p-6 lg:pt-10">
+    <div class="flex flex-col gap-2 items-center">
+      <a :href="userUrl" target="_blank">
+        <NuxtImg
+          :src="user.avatar"
+          :alt="user.name"
+          rounded-full size-16
+        />
       </a>
-      <h1 class="text-2xl sm:text-3xl text-center">
+      <h1 class="text-2xl text-center sm:text-3xl">
         <a :href="userUrl" target="_blank">
           {{ user.name }}
         </a>
-        {{ $t('title.is') }} <span class="animate-pulse">{{ $t('title.Contributing') }}</span>
+        is <span class="animate-pulse">Contributing...</span>
       </h1>
-      <p class="text-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
+      <p class="text-gray-500 text-center dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
         <NuxtLink :to="userUrl" target="_blank">
-          {{ $t('subtitle', { username: user.username }) }}
+          {{ user.username }}'s recent pull requests on GitHub.
         </NuxtLink>
       </p>
-      <div class="flex items-center justify-center gap-1 text-gray-700 dark:text-gray-300">
-        <ClientOnly>
-          <!-- <UButton
-            :aria-label="`${user.name}'s GitHub profile`"
-            icon="i-ph-translate"
-            color="gray"
-            variant="link"
-            @click="setLocale(locale === 'en' ? 'zh-CN' : 'en')"
-          />  -->
-          <UButton
-            :aria-label="`${user.name}'s GitHub profile`"
-            :icon="colorMode.value === 'dark' ? 'i-ph-moon-stars-duotone' : 'i-ph-sun-duotone'"
-            color="neutral"
-            variant="link"
-            @click="colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'"
-          />
-          <template #fallback>
-            <div class="w-8 h-8" />
-          </template>
-        </ClientOnly>
-        <UButton
+      <div class="text-gray-700 flex gap-1 items-center justify-center dark:text-gray-300">
+        <Icon
+          :aria-label="`${user.name}'s GitHub profile`"
+          :name="colorMode.value === 'dark' ? 'ph:moon-stars-duotone' : 'ph:sun-duotone'"
+          @click="colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'"
+        />
+        <Icon
           :to="userUrl"
           external
           target="_blank"
           :aria-label="`${user.name}'s GitHub profile`"
-          icon="i-ph-github-logo-duotone"
+          name="ph:github-logo-duotone"
           color="neutral"
           variant="link"
         />
-        <UButton
+        <Icon
           to="/feed.xml"
           external
           target="_blank"
           aria-label="RSS Feed"
-          icon="i-ph-rss-simple-duotone"
+          name="ph:rss-simple-duotone"
           color="neutral"
           variant="link"
         />
       </div>
-      <UDivider class="mt-2 sm:mt-6 mb-6 sm:mb-10 w-1/2 mx-auto animate-pulse" />
     </div>
 
-    <div class="flex flex-col gap-6 sm:gap-10">
+    <div class="mt12 flex flex-col gap-6 sm:gap-10">
       <PullRequest v-for="pr of prs" :key="pr.url" :data="pr" />
     </div>
-  </UContainer>
+  </div>
 </template>

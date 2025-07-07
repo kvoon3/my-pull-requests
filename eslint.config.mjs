@@ -5,7 +5,10 @@ import nuxt from './.nuxt/eslint.config.mjs'
 
 export default antfu({
   typescript: true,
-  unocss: false,
-  formatters: true,
+  unocss: true,
+}, {
+  rules: {
+    'nuxt/nuxt-config-keys-order': 'error',
+  },
 })
-.append(nuxt())
+  .append(nuxt())

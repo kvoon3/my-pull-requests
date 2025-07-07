@@ -1,30 +1,31 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: 'latest',
-
-  // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
-  future: { compatibilityVersion: 4 },
-
   // https://nuxt.com/modules
   modules: [
     '@nuxt/eslint',
-    '@nuxt/ui',
     '@nuxthub/core',
     '@vueuse/nuxt',
-    '@nuxtjs/i18n',
+    '@unocss/nuxt',
+    '@nuxt/icon',
+    '@nuxtjs/color-mode',
+    '@nuxt/image',
   ],
+
+  // https://devtools.nuxt.com
+  devtools: { enabled: true },
+
+  colorMode: {
+    classPrefix: '',
+    classSuffix: '',
+  },
+
+  // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
+  future: { compatibilityVersion: 4 },
+  compatibilityDate: 'latest',
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
   hub: {
     cache: true,
-  },
-
-  css: [
-    '~/assets/css/main.css'
-  ],
-
-  icon: {
-    serverBundle: 'remote',
   },
 
   // https://eslint.nuxt.com
@@ -34,12 +35,7 @@ export default defineNuxtConfig({
     },
   },
 
-  // https://devtools.nuxt.com
-  devtools: { enabled: true },
-
-  // https://i18n.nuxtjs.org/
-  i18n: {
-    vueI18n: './i18n.config.ts', // if you are using custom path, default
-    locales: ['en', 'zh-CN'],
+  icon: {
+    size: '1.4rem',
   },
 })
