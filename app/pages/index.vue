@@ -47,7 +47,7 @@ useSeoMeta({
         <a :href="userUrl" target="_blank">
           {{ user.name }}
         </a>
-        {{ $t('title.is') }} <span class="animate-pulse">{{$t('title.Contributing')}}</span>
+        {{ $t('title.is') }} <span class="animate-pulse">{{ $t('title.Contributing') }}</span>
       </h1>
       <p class="text-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
         <NuxtLink :to="userUrl" target="_blank">

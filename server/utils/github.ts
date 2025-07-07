@@ -1,3 +1,4 @@
+import process from 'node:process'
 import type { H3Event } from 'h3'
 import { Octokit } from 'octokit'
 
@@ -15,6 +16,7 @@ export function useOctokit() {
 // Read more about caching functions https://hub.nuxt.com/docs/features/cache#server-functions-caching
 export const fetchRepo = defineCachedFunction(async (event: H3Event, owner: string, name: string) => {
   // Fetch repository details to get owner type
+  // eslint-disable-next-line no-console
   console.log(`Fetching repository details for ${owner}/${name}`)
   const { data } = await useOctokit().request('GET /repos/{owner}/{name}', {
     owner,

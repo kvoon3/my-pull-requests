@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxthub/core',
     '@vueuse/nuxt',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
   ],
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   // https://eslint.nuxt.com
   eslint: {
     config: {
-      standalone: false
+      standalone: false,
     },
   },
 
@@ -37,5 +37,5 @@ export default defineNuxtConfig({
   i18n: {
     vueI18n: './i18n.config.ts', // if you are using custom path, default
     locales: ['en', 'zh-CN'],
-  }
+  },
 })
