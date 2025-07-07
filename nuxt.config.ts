@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // https://nuxt.com/modules
@@ -19,13 +21,17 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
 
+  runtimeConfig: {
+    githubToken: process.env.GITHUB_TOKEN,
+  },
+
   // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
   future: { compatibilityVersion: 4 },
   compatibilityDate: 'latest',
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
   hub: {
-    cache: true,
+    kv: true,
   },
 
   // https://eslint.nuxt.com
