@@ -2,7 +2,7 @@
 import type { Contributions } from '~~/types'
 
 const colorMode = useColorMode()
-const { locale, setLocale } = useI18n()
+// const { locale, setLocale } = useI18n()
 
 const { data: contributions } = await useFetch<Contributions>('/api/contributions')
 
@@ -45,7 +45,7 @@ useSeoMeta({
       </a>
       <h1 class="text-2xl sm:text-3xl text-center">
         <a :href="userUrl" target="_blank">
-          {{ locale === 'zh-CN' ? '旷力介' : user.name }}
+          {{ user.name }}
         </a>
         {{ $t('title.is') }} <span class="animate-pulse">{{$t('title.Contributing')}}</span>
       </h1>
@@ -56,13 +56,13 @@ useSeoMeta({
       </p>
       <div class="flex items-center justify-center gap-1 text-gray-700 dark:text-gray-300">
         <ClientOnly>
-          <UButton
+          <!-- <UButton
             :aria-label="`${user.name}'s GitHub profile`"
             icon="i-ph-translate"
             color="gray"
             variant="link"
             @click="setLocale(locale === 'en' ? 'zh-CN' : 'en')"
-          /> 
+          />  -->
           <UButton
             :aria-label="`${user.name}'s GitHub profile`"
             :icon="colorMode.value === 'dark' ? 'i-ph-moon-stars-duotone' : 'i-ph-sun-duotone'"
