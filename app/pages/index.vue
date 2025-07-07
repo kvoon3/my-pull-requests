@@ -54,30 +54,18 @@ useSeoMeta({
           {{ user.username }}'s recent pull requests on GitHub.
         </NuxtLink>
       </p>
-      <div class="text-gray-700 flex gap-1 items-center justify-center dark:text-gray-300">
+      <div class="text-gray-700 flex gap-6 items-center justify-center dark:text-gray-300">
         <Icon
           :aria-label="`${user.name}'s GitHub profile`"
           :name="colorMode.value === 'dark' ? 'ph:moon-stars-duotone' : 'ph:sun-duotone'"
           @click="colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'"
         />
-        <Icon
-          :to="userUrl"
-          external
-          target="_blank"
-          :aria-label="`${user.name}'s GitHub profile`"
-          name="ph:github-logo-duotone"
-          color="neutral"
-          variant="link"
-        />
-        <Icon
-          to="/feed.xml"
-          external
-          target="_blank"
-          aria-label="RSS Feed"
-          name="ph:rss-simple-duotone"
-          color="neutral"
-          variant="link"
-        />
+        <NuxtLink leading-0 :aria-label="`${user.name}'s GitHub profile`" :href="userUrl" target="_blank" flex inline-block items-center>
+          <Icon name="ph:github-logo-duotone" />
+        </NuxtLink>
+        <NuxtLink leading-0 aria-label="RSS Feed" target="_blank" href="/feed.xml" flex inline-block items-center>
+          <Icon name="ph:rss-simple-duotone" />
+        </NuxtLink>
       </div>
     </div>
 
