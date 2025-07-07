@@ -66,7 +66,7 @@ useSeoMeta({
           <UButton
             :aria-label="`${user.name}'s GitHub profile`"
             :icon="colorMode.value === 'dark' ? 'i-ph-moon-stars-duotone' : 'i-ph-sun-duotone'"
-            color="gray"
+            color="neutral"
             variant="link"
             @click="colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'"
           />
@@ -80,7 +80,7 @@ useSeoMeta({
           target="_blank"
           :aria-label="`${user.name}'s GitHub profile`"
           icon="i-ph-github-logo-duotone"
-          color="gray"
+          color="neutral"
           variant="link"
         />
         <UButton
@@ -89,7 +89,7 @@ useSeoMeta({
           target="_blank"
           aria-label="RSS Feed"
           icon="i-ph-rss-simple-duotone"
-          color="gray"
+          color="neutral"
           variant="link"
         />
       </div>

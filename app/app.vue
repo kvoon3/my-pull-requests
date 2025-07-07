@@ -7,18 +7,20 @@ useHead({
 </script>
 
 <template>
-  <NuxtPage />
-  <p v-show="false" class="text-center py-6 pb-10 text-sm">
-    <UButton
-      to="https://github.com/atinux/my-pull-requests"
-      target="_blank"
-      color="white"
-      size="xs"
-      icon="i-simple-icons-github"
-    >
-      Create my own contributions page
-    </UButton>
-  </p>
+  <UApp>
+    <NuxtPage />
+    <p v-show="false" class="text-center py-6 pb-10 text-sm">
+      <UButton
+        to="https://github.com/atinux/my-pull-requests"
+        target="_blank"
+        color="white"
+        size="xs"
+        icon="i-simple-icons-github"
+      >
+        Create my own contributions page
+      </UButton>
+    </p>
+  </UApp>
 </template>
 
 <style lang="postcss">

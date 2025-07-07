@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-07-30',
+  compatibilityDate: 'latest',
 
   // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
   future: { compatibilityVersion: 4 },
@@ -18,6 +18,10 @@ export default defineNuxtConfig({
   hub: {
     cache: true,
   },
+
+  css: [
+    '~/assets/css/main.css'
+  ],
 
   icon: {
     serverBundle: 'remote',
