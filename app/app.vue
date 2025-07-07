@@ -14,6 +14,6 @@ useHead({
 html,
 body,
 #__nuxt {
-  --uno: h100dvh of-y-auto bg-white dark:bg-black text-neutral-700 dark:text-neutral-200 font-sans;
+  --uno: h100dvh of-y-auto bg-stone-100  dark:bg-black text-neutral-700 dark:text-neutral-200 font-sans;
 }
 </style>
