@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   // https://nuxt.com/modules
   modules: [
     '@nuxt/eslint',
-    '@nuxthub/core',
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@nuxt/icon',
@@ -29,9 +28,8 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
   compatibilityDate: 'latest',
 
-  // https://hub.nuxt.com/docs/getting-started/installation#options
-  hub: {
-    kv: true,
+  nitro: {
+    preset: 'vercel',
   },
 
   // https://eslint.nuxt.com
