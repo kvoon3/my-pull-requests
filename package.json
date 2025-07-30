@@ -11,13 +11,11 @@
     "start:generate": "npx serve .output/public",
     "lint": "eslint .",
     "typecheck": "vue-tsc --noEmit",
-    "deploy": "npx nuxthub deploy",
     "up": "pnpm dlx taze -I major"
   },
   "dependencies": {
     "@iconify-json/ph": "^1.2.2",
     "@nuxt/ui": "^3.3.0",
-    "@nuxthub/core": "^0.9.0",
     "@nuxtjs/i18n": "^10.0.3",
     "@vueuse/core": "^13.6.0",
     "@vueuse/nuxt": "^13.6.0",
